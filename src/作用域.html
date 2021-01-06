@@ -7,6 +7,26 @@
     <body>
         <script>
             console.log("------------");
+            console.log("---第二题---");
+            console.log("------------");
+
+            function Person(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            function func1(person) {
+                person.name = "liSi";
+                person = new Person("wangWu", 20);
+                person.name = "zhaoLiu";
+            }
+            var personObj = new Person("zhangSan", 10);
+            console.log(personObj.name);
+            func1(personObj);
+            console.log(personObj.name);
+        </script>
+        <script>
+            console.log("------------");
             console.log("---第一题---");
             console.log("------------");
 
@@ -27,3 +47,4 @@
         </script>
     </body>
 </html>
+<script></script>
