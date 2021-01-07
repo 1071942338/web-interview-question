@@ -5,18 +5,18 @@
 
 ```css
     div {
-        /*背景色方便对比显示*/
-        background: #999999;
-        /*必要条件*/
-        box-sizing: border-box;
-        /*宽高根据实际需要设置*/
-        width: 100px;
-        height: 100px;
-        /*方便布局*/
-        margin-bottom: 32px;
-    }
+    /*背景色方便对比显示*/
+    background: #999999;
+    /*必要条件*/
+    box-sizing: border-box;
+    /*宽高根据实际需要设置*/
+    width: 100px;
+    height: 100px;
+    /*方便布局*/
+    margin-bottom: 32px;
+}
 ```
-![image](https://github.com/1071942338/web-interview-question/blob/main/src/CSS%E4%B8%89%E8%A7%92%E5%BD%A2/border.png)
+
 ## 3、设置border
 
 
@@ -116,3 +116,5 @@
         border-right: 50px solid yellow;
     }
 ```
+
+> [代码链接](https://github.com/1071942338/web-interview-question/blob/main/src/CSS%E4%B8%89%E8%A7%92%E5%BD%A2.html)
