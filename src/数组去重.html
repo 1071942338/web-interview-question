@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>数组去重</title>
+    </head>
+    <body>
+        <script>
+            var dataArray = [1, 1, "2", "2", null, undefined, null, undefined];
+        </script>
+        <script>
+            /* 双重for循环去重*/
+            function func0(array) {
+                const newArray = [];
+                for (let i = 0; i < array.length; i++) {
+                    //1、第一层循环取出目标数组中的每一个元素itemOld
+                    const itemOld = array[i];
+                    let contain = false;
+                    for (let j = 0; j < newArray.length; j++) {
+                        //2、第二层循环取出新数组中的每一个元素itemNew
+                        const itemNew = newArray[j];
+                        //3、每个itemOld和每个itemNew逐一比较
+                        if (itemOld === itemNew) {
+                            //4、如果相等则存在，中断第二层循环
+                            contain = true;
+                            break;
+                        }
+                    }
+                    //5、如果第二层循环执行完都没有中断则说明该元素不存在，则加入数组
+                    if (contain === false) {
+                        newArray.push(itemOld);
+                    }
+                }
+                return newArray;
+            }
+            console.log(func0(dataArray));
+        </script>
+        <script>
+            /* 借助新数组去重*/
+            function func1(array) {
+                const newArray = [];
+                array.forEach((item) => {
+                    if (newArray.indexOf(item) === -1) {
+                        newArray.push(item);
+                    }
+                });
+                return newArray;
+            }
+            console.log(func1(dataArray));
+
+            function func2(array) {
+                const newArray = [];
+                array.forEach((item) => {
+                    if (newArray.includes(item) === false) {
+                        newArray.push(item);
+                    }
+                });
+                return newArray;
+            }
+            console.log(func2(dataArray));
+        </script>
+
+        <script>
+            /* 借助新数据结构去重*/
+            function func3(array) {
+                const obj = [];
+                array.forEach((item) => {
+                    obj[item] = item;
+                });
+                return Object.values(obj);
+            }
+
+            console.log(func3(dataArray));
+
+            function func4(array) {
+                const set = new Set(array);
+                return [...set];
+            }
+            console.log(func4(dataArray));
+        </script>
+    </body>
+</html>
