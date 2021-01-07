@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>反转数组</title>
+    </head>
+    <body>
+        <script>
+            const dataArr = [1, 2, 3, 4, 5, 6, 7, 8];
+            function reverse(arr) {
+                //拷贝一下数据，防止改变原数组
+                const copyArr = [...arr];
+                /*
+                 * 反转过程
+                 * 1、copyArr[0] 和 copyArr[7] 交换 (copyArr.length - 1 - 0)
+                 * 2、copyArr[1] 和 copyArr[6] 交换 (copyArr.length - 1 - 1)
+                 * 3、copyArr[2] 和 copyArr[5] 交换 (copyArr.length - 1 - 2)
+                 * 4、copyArr[3] 和 copyArr[4] 交换 (copyArr.length - 1 - 3)
+                 * 总共交换4次,数组长度的一半
+                 * copyArr[i] 和 copyArr[copyArr.length - 1 - i]
+                 * */
+                for (let i = 0; i < copyArr.length / 2; i++) {
+                    const tempItem = copyArr[i];
+                    copyArr[i] = copyArr[copyArr.length - 1 - i];
+                    copyArr[copyArr.length - 1 - i] = tempItem;
+                }
+                return copyArr;
+            }
+            console.log(reverse(dataArr));
+
+            function reverse2(arr) {
+                /*
+                 * 反转过程
+                 * 1、copyArr[0] 保存 arr[7]  (arr.length - 1 - 0)
+                 * 2、copyArr[1] 保存 arr[6]  (arr.length - 1 - 1)
+                 * 3、copyArr[2] 保存 arr[5]  (arr.length - 1 - 2)
+                 * 4、copyArr[3] 保存 arr[4]  (arr.length - 1 - 3)
+                 * 5、copyArr[4] 保存 arr[3]  (arr.length - 1 - 3)
+                 * 6、copyArr[5] 保存 arr[2]  (arr.length - 1 - 3)
+                 * 7、copyArr[6] 保存 arr[1]  (arr.length - 1 - 3)
+                 * 8、copyArr[7] 保存 arr[0]  (arr.length - 1 - 3)
+                 *
+                 * 总共交换8次,数组长度
+                 * copyArr[i] 和 arr[copyArr.length - 1 - i]
+                 * */
+                const copyArr = [];
+                for (let i = 0; i < arr.length; i++) {
+                    copyArr[i] = arr[arr.length - 1 - i];
+                }
+                return copyArr;
+            }
+
+            console.log(reverse2(dataArr));
+
+            //拷贝数组，防止操作原数组
+            const copyArr = [...dataArr];
+            //调用函数
+            const reverseArr = copyArr.reverse();
+            console.log(reverseArr);
+            console.log(copyArr);
+        </script>
+    </body>
+</html>
