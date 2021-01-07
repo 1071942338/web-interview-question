@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>冒泡排序</title>
+    </head>
+    <body>
+        <script>
+            const dataArr = [6, 5, 3, 4, 2, 1];
+            function bubbleSort1(arr) {
+                //拷贝数组
+                const newArr = [...arr];
+                //统计执行次数
+                let time = 0;
+                for (let j = 0; j < newArr.length; j++) {
+                    //执行次数加1
+                    time = time + 1;
+                    //临时用来保存需要交换的值
+                    let temp;
+                    //如果前者大于后者，则进行数据交换
+                    if (newArr[j] > newArr[j + 1]) {
+                        temp = newArr[j];
+                        newArr[j] = newArr[j + 1];
+                        newArr[j + 1] = temp;
+                    }
+                }
+                console.log("执行次数:", time);
+                return newArr;
+            }
+            console.log(bubbleSort1(dataArr));
+        </script>
+        <script>
+            function bubbleSort2(arr) {
+                //拷贝数组
+                const newArr = [...arr];
+                //统计执行次数
+                let time = 0;
+                //多少元素执行多少轮
+                for (let round = 0; round < newArr.length; round++) {
+                    for (let j = 0; j < newArr.length; j++) {
+                        //执行次数加1
+                        time = time + 1;
+                        //临时用来保存需要交换的值
+                        let temp;
+                        //如果前者大于后者，则进行数据交换
+                        if (newArr[j] > newArr[j + 1]) {
+                            temp = newArr[j];
+                            newArr[j] = newArr[j + 1];
+                            newArr[j + 1] = temp;
+                        }
+                    }
+                    console.log(`第${round}轮:`, newArr);
+                }
+                console.log("执行次数:", time);
+                return newArr;
+            }
+            console.log(bubbleSort2(dataArr));
+        </script>
+
+        <script>
+            function bubbleSort(arr) {
+                //拷贝数组
+                const newArr = [...arr];
+                //统计执行次数
+                let time = 0;
+                for (let round = 0; round < newArr.length; round++) {
+                    //每进行一轮，都可以确定一个较大的元素，后边的元素无需参与排序
+                    for (let j = 0; j < newArr.length - round; j++) {
+                        //执行次数加1
+                        time = time + 1;
+                        //临时用来保存需要交换的值
+                        let temp;
+                        //如果前者大于后者，则进行数据交换
+                        if (newArr[j] > newArr[j + 1]) {
+                            temp = newArr[j];
+                            newArr[j] = newArr[j + 1];
+                            newArr[j + 1] = temp;
+                        }
+                    }
+                    console.log(`第${round}轮:`, newArr);
+                }
+                console.log("执行次数:", time);
+                return newArr;
+            }
+            console.log(bubbleSort(dataArr));
+        </script>
+    </body>
+</html>
+<script>
+    function bubbleSort(arr) {
+        //拷贝数组
+        const newArr = [...arr];
+        //统计执行次数
+        let time = 0;
+        for (let round = 0; round < newArr.length; round++) {
+            //每进行一轮，都可以确定一个较大的元素，后边的元素无需参与排序
+            for (let j = 0; j < newArr.length - round; j++) {
+                //执行次数加1
+                time = time + 1;
+                //临时用来保存需要交换的值
+                let temp;
+                //如果前者大于后者，则进行数据交换
+                if (newArr[j] > newArr[j + 1]) {
+                    temp = newArr[j];
+                    newArr[j] = newArr[j + 1];
+                    newArr[j + 1] = temp;
+                }
+            }
+            console.log(`第${round}轮:`, newArr);
+        }
+        console.log("执行次数:", time);
+        return newArr;
+    }
+    console.log(bubbleSort(dataArr));
+</script>
