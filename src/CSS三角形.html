@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS三角形</title>
+        <style>
+            div {
+                /*背景色方便对比显示*/
+                background: #999999;
+                /*必要条件*/
+                box-sizing: border-box;
+                /*宽高根据实际需要设置*/
+                width: 100px;
+                height: 100px;
+                /*方便布局*/
+                margin-bottom: 32px;
+            }
+            .border {
+                border-top: 50px solid red;
+                border-bottom: 50px solid green;
+                border-left: 50px solid blue;
+                border-right: 50px solid yellow;
+            }
+            .border-top {
+                border-top: 50px solid red;
+                border-bottom: 50px solid transparent;
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+            }
+            .border-bottom {
+                border-top: 50px solid transparent;
+                border-bottom: 50px solid green;
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+            }
+            .border-left {
+                border-top: 50px solid transparent;
+                border-bottom: 50px solid transparent;
+                border-left: 50px solid blue;
+                border-right: 50px solid transparent;
+            }
+            .border-right {
+                border-top: 50px solid transparent;
+                border-bottom: 50px solid transparent;
+                border-left: 50px solid transparent;
+                border-right: 50px solid yellow;
+            }
+
+            .border-left-top {
+                border-top: 50px solid red;
+                border-bottom: 50px solid transparent;
+                border-left: 50px solid blue;
+                border-right: 50px solid transparent;
+            }
+            .border-left-bottom {
+                border-top: 50px solid transparent;
+                border-bottom: 50px solid green;
+                border-left: 50px solid blue;
+                border-right: 50px solid transparent;
+            }
+            .border-right-top {
+                border-top: 50px solid red;
+                border-bottom: 50px solid transparent;
+                border-left: 50px solid transparent;
+                border-right: 50px solid yellow;
+            }
+            .border-right-bottom {
+                border-top: 50px solid transparent;
+                border-bottom: 50px solid green;
+                border-left: 50px solid transparent;
+                border-right: 50px solid yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="border"></div>
+
+        <div class="border-top"></div>
+        <div class="border-bottom"></div>
+        <div class="border-left"></div>
+        <div class="border-right"></div>
+
+        <div class="border-left-top"></div>
+        <div class="border-left-bottom"></div>
+        <div class="border-right-top"></div>
+        <div class="border-right-bottom"></div>
+    </body>
+</html>
