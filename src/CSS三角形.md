@@ -16,7 +16,7 @@
         margin-bottom: 32px;
     }
 ```
-
+![image](https://github.com/1071942338/web-interview-question/blob/main/src/CSS%E4%B8%89%E8%A7%92%E5%BD%A2/border.png)
 ## 3、设置border
 
 
