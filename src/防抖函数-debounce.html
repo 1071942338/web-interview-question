@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>防抖函数-debounce</title>
+    </head>
+    <body>
+        <div>
+            <span>原始版本:</span>
+            <input type="text" id="input" />
+        </div>
+        <div>
+            <span>防抖版本:</span>
+            <input type="text" id="debounce" />
+        </div>
+        <div>
+            <span>封装版本:</span>
+            <input type="text" id="function" />
+        </div>
+        <script>
+            //原始版本
+            const element = document.getElementById("input");
+            element.onkeyup = (event) => {
+                console.log("原始版本--发送网络请求:", event.target.value);
+            };
+        </script>
+        <script>
+            //防抖版本
+            const element2 = document.getElementById("debounce");
+            let timer = null;
+            element2.onkeyup = (event) => {
+                if (timer) {
+                    window.clearTimeout(timer);
+                }
+                timer = setTimeout(() => {
+                    console.log("防抖版本--发送网络请求:", event.target.value);
+                }, 1000);
+            };
+        </script>
+        <script>
+            //封装版本
+            const element3 = document.getElementById("function");
+
+            element3.onkeyup = debounce((event) => {
+                console.log("封装版本--发送网络请求:", event.target.value);
+            }, 1000);
+
+            function debounce(fun, delay = 500) {
+                let timer = null;
+                return function () {
+                    if (timer) {
+                        window.clearTimeout(timer);
+                    }
+                    timer = setTimeout(() => {
+                        //无法传递event参数
+                        // fun();
+                        fun.apply(this, arguments);
+                    }, 1000);
+                };
+            }
+        </script>
+    </body>
+</html>
